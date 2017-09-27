@@ -2,8 +2,12 @@
 
 ## How to
 
-`npm install`
+Clone repository: `git clone https://github.com/jaacoder/adonisjs-crud-example.git`
 
-`npm run serve:dev`
+Enter the folder: `cd adonisjs-crud-example`
 
-Access the url in the browser: http://localhost:3333
+Install dependencies: `npm install`
+
+Run server: `npm run serve:dev`
+
+Access the url in the browser: `http://localhost:3333`
