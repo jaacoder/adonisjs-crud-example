@@ -27,14 +27,6 @@ class Category extends Lucid {
         }
     }
 
-    /** save() {
-        if (yield this.validate()) {
-            return yield super.save()
-        }
-        
-        return 0
-    }*/
-
 }
 
 module.exports = Category

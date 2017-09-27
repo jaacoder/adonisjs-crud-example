@@ -34,14 +34,6 @@ class Product extends Lucid {
             return true
         }
     }
-
-    * save() {
-        if (yield this.validate()) {
-            return yield super.save()
-        }
-
-        return false
-    }
 }
 
 module.exports = Product
