@@ -1,0 +1,44 @@
+{% extends 'app' %} {% block content %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Product Listing</h3>
+    </div>
+
+    <div class="panel-body">
+
+        <!-- new button -->
+        <a class="btn btn-xs btn-success" href="/product/create">
+            <i class="fa fa-plus"></i> Novo
+        </a>
+
+        <!-- listing -->
+        <table class="table table-stripped table-hover">
+            <thead>
+                <tr>
+                    <th width="100">ID</th>
+                    <th>Product</th>
+                    <th width="250">Category</th>
+                    <th width="150"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>
+                        <a href="/product/{{ product.id }}" style="text-decoration: none">
+                            <span class="label label-primary"><i class="fa fa-pencil"></i> edit</span>
+                        </a>
+                        <a href="/product/{{ product.id }}?_method=delete" style="text-decoration: none" onclick="return confirm('Delete product?')">
+                            <span class="label label-danger"><i class="fa fa-trash"></i> delete</span>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

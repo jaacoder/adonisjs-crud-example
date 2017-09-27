@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Adonis: CRUD example</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-lumen.min.css">
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+
+    <script src="/assets/jquery/jquery.min.js"></script>
+    <script>
+        // init function
+        $(function() {
+
+            // set current menu as 'active'
+            var controller = location.pathname.substring(1).split('/')[0]
+            $('ul.nav li:has(a[href^="/' + controller + '"])').addClass('active')
+
+            {% if messages.info %}
+            alert('{{ messages.info }}')
+            {% endif %}
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- menu -->
+        <nav class="navbar navbar-default">
+
+            <!-- adonis icon -->
+            <div class="navbar-header">
+                <div class="navbar-brand"><img src="/assets/favicon.png" width="20"></div>
+            </div>
+
+            <!-- links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li><a href="/category">Categories</a></li>
+                    <li><a href="/product">Products</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- custom content -->
+        {% block content %}{% endblock %}
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends 'app' %} {% block content %}
+
+<form action="/category" method="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Category Form</h3>
+        </div>
+
+        <div class="panel-body">
+
+            {% if messages.error %}
+
+            <div class="alert alert-danger col-sm-6">
+                <ul>
+                    {% for error in messages.error %}
+                        <li>{{ error.message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+
+            {% endif %}
+
+            <!-- form -->
+            <div class="col-sm-6">
+                <label>Category</label>
+                <input type="text" class="form-control" name="category[name]" value="{{ category.name }}">
+            </div>
+        </div>
+    </div>
+
+    <!-- insert button -->
+    {% if not category.id %}
+    <button class="btn btn-xs btn-success">
+        <i class="fa fa-save"></i> Insert
+    </button>
+    {% endif %}
+
+    <!-- save button -->
+    {% if category.id %}
+    <button class="btn btn-xs btn-success" onclick="this.form.action = location.pathname + '?_method=put'">
+        <i class="fa fa-save"></i> Update
+    </button>
+    {% endif %}
+
+    <!-- listing button -->
+    <a class="btn btn-xs btn-default" href="/category">
+        <i class="fa fa-list-alt"></i> Listing
+    </a>
+
+    {{ csrfField }}
+</form>
+{% endblock %}
